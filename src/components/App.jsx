@@ -16,7 +16,7 @@ export const App = () => {
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem('contacts');
 
-    if (savedContacts === null || JSON.parse(savedContacts).length === 0) {
+    if (savedContacts === null ) {
       return listContacts;
     }
     const parsedContacts = JSON.parse(savedContacts);
