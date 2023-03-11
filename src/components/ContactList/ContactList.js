@@ -22,7 +22,8 @@ export const ContactList = ({ items, onDelete }) => {
   );
 };
 
-ContactList.propTypes={
-  items:PropTypes.arrayOf(PropTypes.shape({id:PropTypes.string.isRequired})).isRequired,
-  onDelete:PropTypes.func.isRequired,
-}
+ContactList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired }))
+    .isRequired,
+  onDelete: PropTypes.func.isRequired,
+};

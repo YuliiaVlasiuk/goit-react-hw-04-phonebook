@@ -15,7 +15,10 @@ const phoneSchema = Yup.object().shape({
     .required('Required'),
 
   number: Yup.string()
-    .matches(/\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,`Phone number must be digits and can contain spaces, dashes, parentheses and can start with +`)
+    .matches(
+      /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
+      `Phone number must be digits and can contain spaces, dashes, parentheses and can start with +`
+    )
     .required('Required'),
 });
 
@@ -30,7 +33,7 @@ export const ContactForm = ({ onSubmit }) => {
       initialValues={initialValues}
       validationSchema={phoneSchema}
       onSubmit={(values, actions) => {
-        onSubmit({  id: nanoid() ,...values });
+        onSubmit({ id: nanoid(), ...values });
         actions.resetForm();
       }}
     >
@@ -43,7 +46,7 @@ export const ContactForm = ({ onSubmit }) => {
 
         <FormField>
           Number
-          <Field type="tel" name="number"/>
+          <Field type="tel" name="number" />
           <ErrorMessage name="number" component="div" />
         </FormField>
 
@@ -53,6 +56,6 @@ export const ContactForm = ({ onSubmit }) => {
   );
 };
 
-ContactForm.propTypes={
-   onSubmit:PropTypes.func.isRequired
-   }
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
